@@ -68,14 +68,14 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--validation', help='<string> validation volumes directory', type=str,
                         dest='validation')
     parser.add_argument('-f', '--fixed', help='<string> fixed volume directory', type=str, dest='fixed')
-    parser.add_argument('-b', '--batch', help='<integer> batch size, default=4', type=int, dest='batch_size', default=4)
+    parser.add_argument('-b', '--batch', help='<integer> batch size, default=4', type=int, dest='batch_size', default=64)
     parser.add_argument('-c', '--checkpoint', help='<integer> weights save checkpoint, default=00', type=int, dest='checkpoint', default=0)
     parser.add_argument('-e', '--epochs', help='<integer> number of training epochs, default=100', type=int, dest='epochs', default=100)
     parser.add_argument('-l', '--save_loss', help='<boolean> save loss across all epochs, default=TRUE', type=bool, dest='save_loss', default=True)
     parser.add_argument('-m', '--model_save', help='<string> model save directory', type=str, dest='model_save')
     parser.add_argument('-a', '--alpha', help='<string> alpha value for loss function during training, default = 0.20', type=str, dest='alpha', default='0.20')
-    parser.add_argument('-w', '--weights', help='<string> location of weights to load', type=str, dest='weights')
+    parser.add_argument('-m', '--model_save', help='<string> location of weights to load', type=str, dest='model_save')
 
     args = parser.parse_args()
 
-    train(args.fixed, args.train, args.validation, args.batch_size, args.epochs, args.checkpoint, args.weights, args.save_loss, args.alpha)
+    train(args.fixed, args.train, args.validation, args.batch_size, args.epochs, args.checkpoint, args.model_save, args.save_loss, args.alpha)
