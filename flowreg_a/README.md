@@ -52,6 +52,7 @@ The output `.mat` file will be the registered volume and the corresponding flatt
 ## Citation
 If you use any portion of our work, please cite our paper.
 ```
-S. Mocanu, A. Moody, and A. Khademi, “FlowReg: Fast Deformable Unsupervised Medical Image Registration using Optical Flow,” Machine Learning for Biomedical Imaging, pp. 1–40, Sep. 2021.
+S. Mocanu, A. Moody, and A. Khademi, “FlowReg: Fast Deformable Unsupervised Medical Image Registration using Optical Flow,” 
+Machine Learning for Biomedical Imaging, pp. 1–40, Sep. 2021.
 ```
 Available at: https://www.melba-journal.org/article/27657-flowreg-fast-deformable-unsupervised-medical-image-registration-using-optical-flow
