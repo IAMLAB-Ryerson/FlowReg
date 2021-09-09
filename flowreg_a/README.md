@@ -22,7 +22,15 @@ Note: the `checkpoint` and `save_loss` will be saved in appropriate folders with
 
 An example command could look something like:
 ```
-python train.py --train "path/to/train/directory" --validation "path/to/validation/directory" --fixed "path/to/fixed/volume.mat" --batch 4 --checkpoint 1 --epochs 100 --save_loss True --model_save "path/to/model/save/directory"
+python train.py \
+--train "path/to/train/directory" \
+--validation "path/to/validation/directory" \
+--fixed "path/to/fixed/volume.mat" \
+--batch 4 \
+--checkpoint 1 \
+--epochs 100 \
+--save_loss True \
+--model_save "path/to/model/save/directory"
 ```
 
 ## Registration

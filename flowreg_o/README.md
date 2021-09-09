@@ -23,7 +23,15 @@ Note: the `checkpoint` and `save_loss` will be saved in appropriate folders with
 
 An example command could look something like:
 ```
-python train.py --train "path/to/train/directory" --validation "path/to/validation/directory" --fixed "path/to/fixed/volume.mat" --batch 32 --checkpoint 1 --epochs 100 --save_loss True --model_save "path/to/model/save/directory"
+python train.py \
+--train "path/to/train/directory" \
+--validation "path/to/validation/directory" \
+--fixed "path/to/fixed/volume.mat" \
+--batch 32 \
+--checkpoint 1 \
+--epochs 100 \
+--save_loss True \
+--model_save "path/to/model/save/directory"
 ```
 
 ## Registration
@@ -45,6 +53,7 @@ The output `.mat` file will be the registered volume and the corresponding 2D de
 ## Citation
 If you use any portion of our work, please cite our paper.
 ```
-S. Mocanu, A. Moody, and A. Khademi, “FlowReg: Fast Deformable Unsupervised Medical Image Registration using Optical Flow,” Machine Learning for Biomedical Imaging, pp. 1–40, Sep. 2021.
+S. Mocanu, A. Moody, and A. Khademi, “FlowReg: Fast Deformable Unsupervised Medical Image Registration using Optical Flow,” 
+Machine Learning for Biomedical Imaging, pp. 1–40, Sep. 2021.
 ```
 Available at: https://www.melba-journal.org/article/27657-flowreg-fast-deformable-unsupervised-medical-image-registration-using-optical-flow
