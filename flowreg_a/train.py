@@ -14,7 +14,7 @@ config = tf.ConfigProto()
 config.gpu_options.allow_growth = True
 session = tf.Session(config=config)
 
-def train(batch_size, train, validation, fixed, checkpoint, epochs, save_loss, weights, model_save_dir):
+def train(batch_size, train, validation, fixed, checkpoint, epochs, save_loss, model_save_dir, weights):
 
     # to check if the train volumes are a directory or a text file
     if os.path.isfile(train):
@@ -82,7 +82,8 @@ if __name__ == "__main__":
     parser.add_argument('-e', '--epochs', help='<integer> number of training epochs, default=100', type=int, dest='epochs', default=100)
     parser.add_argument('-l', '--save_loss', help='<boolean> save loss across all epochs, default=TRUE', type=bool, dest='save_loss', default=True)
     parser.add_argument('-m', '--model_save', help='<string> model save directory', type=str, dest='model_save')
+    parser.add_argument('-w', '--load_weights', help='<string> load additional weights', type=str, dest='load_weights')
 
     args = parser.parse_args()
 
-    train(args.batch, args.train, args.validation, args.fixed, args.checkpoint, args.epochs, args.save_loss, args.model_save)
+    train(args.batch, args.train, args.validation, args.fixed, args.checkpoint, args.epochs, args.save_loss, args.model_save, args.load_weights)

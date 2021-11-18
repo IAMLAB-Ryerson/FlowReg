@@ -17,9 +17,10 @@ The command-line arguments are as follow. The text in *italics* is the expect da
 - `-c` or `--checkpoint` at which interval to save, default = 0 (*integer*)
 - `-l` or `--save_loss` save loss value to a csv during training, default = True (*boolean*)
 - `-m` or `--model_save` directory to save the final model (*string*)
+- `-w` or `--load_weights` directory to load previous weights, useful if training crashes after a few epochs (*string*)
 - `-a` or `--alpha_val` alpha value used for the loss during training (please see article for choosing an optimal value)
 
-Note: the `checkpoint` and `save_loss` will be saved in appropriate folders within the `flowreg_a` folder. Otherwise, it can be easily modified in the `train.py` file.
+Note: the `checkpoint` and `save_loss` will be saved in appropriate folders within the `flowreg_o` folder. Otherwise, it can be easily modified in the `train.py` file.
 
 An example command could look something like:
 ```
