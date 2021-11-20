@@ -9,7 +9,7 @@ from keras.callbacks import ModelCheckpoint, CSVLogger
 from data_generator import generatedata
 from model import flowmodelS
 
-def train(fixed, train, validation, batch_size, epochs, checkpoint, weights, save_loss, alpha):
+def train(fixed, train, validation, batch_size, epochs, checkpoint, save_path, save_loss, alpha, weights):
 
     # get data from generator
     print('generating data')
@@ -40,9 +40,11 @@ def train(fixed, train, validation, batch_size, epochs, checkpoint, weights, sav
                                  save_weights_only=True)
     datestr = str(
         datetime.datetime.now().strftime('%Y-%m-%d'))
-    csv_logger = CSVLogger('G:/My Drive/MASc/Code/python/flowreg2d/losses/' + datestr + '.csv', separator=',')
-
-    callbacks = [checkpoint, csv_logger]
+    if save_loss:
+        csv_logger = CSVLogger('G:/My Drive/MASc/Code/python/flowreg2d/losses/' + datestr + '.csv', separator=',')
+        callbacks = [checkpoint, csv_logger]
+    else:
+        callbacks = [checkpoint]
 
     model = flowmodelS(shape=[256, 256, 1], batch_size=batch_size)
     model.summary()
@@ -54,7 +56,6 @@ def train(fixed, train, validation, batch_size, epochs, checkpoint, weights, sav
                         verbose=1, epochs=epochs,
                         callbacks=callbacks)
 
-    save_path = 'G:/My Drive/MASc/Code/python/flowreg2d/models/'
     model.save(save_path + timestr + '.h5')
     print("------------Model Saved---------------")
 
@@ -74,8 +75,8 @@ if __name__ == "__main__":
     parser.add_argument('-l', '--save_loss', help='<boolean> save loss across all epochs, default=TRUE', type=bool, dest='save_loss', default=True)
     parser.add_argument('-m', '--model_save', help='<string> model save directory', type=str, dest='model_save')
     parser.add_argument('-a', '--alpha', help='<string> alpha value for loss function during training, default = 0.20', type=str, dest='alpha', default='0.20')
-    parser.add_argument('-m', '--model_save', help='<string> location of weights to load', type=str, dest='model_save')
+    parser.add_argument('-w', '--load_weights', help='<string> location of weights to load', type=str, dest='load_weights')
 
     args = parser.parse_args()
 
-    train(args.fixed, args.train, args.validation, args.batch_size, args.epochs, args.checkpoint, args.model_save, args.save_loss, args.alpha)
+    train(args.fixed, args.train, args.validation, args.batch_size, args.epochs, args.checkpoint, args.model_save, args.save_loss, args.alpha, args.load_weights)
